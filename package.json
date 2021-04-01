@@ -6,9 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p $PORT",
-    "prepare": "husky install",
+    "prepare": "npx husky install",
     "test": "echo 'ok'",
-    "postinstall": "husky install"
+    "postinstall": "npx husky install"
   },
   "dependencies": {
     "date-fns": "^2.11.1",
