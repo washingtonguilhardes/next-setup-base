@@ -4,11 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "yarn lint && yarn test",
     "build": "next build",
     "start": "next start -p $PORT",
     "prepare": "npx husky install",
     "test": "echo 'ok'",
-    "postinstall": "npx husky install"
+    "postinstall": "npx husky install",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
     "date-fns": "^2.11.1",

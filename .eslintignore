@@ -4,3 +4,6 @@ src/**/*.test.ts
 babel.config.js
 coverage/
 next.config.js
+tsconfig.json
+package.json
+.next

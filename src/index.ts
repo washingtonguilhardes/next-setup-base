@@ -1,3 +1,1 @@
-console.log('ok')
-
-export default {}
+export default {};
