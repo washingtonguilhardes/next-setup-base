@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Example snapshot 1`] = `
+<div>
+  <div>
+    <ul>
+      <li>
+        <span>
+          ok
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
