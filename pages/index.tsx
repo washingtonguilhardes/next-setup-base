@@ -1,10 +1,28 @@
 import React from 'react';
 
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+import { Typography } from '@src/Components/Athoms/Typography';
+
+const useStyles = makeStyles({
+  root: {
+    padding: '16px',
+    height: '100%',
+    margin: 54,
+  },
+  title: {
+    textAlign: 'center',
+  },
+});
+
 const Home = () => {
+  const classes = useStyles();
   return (
-    <div className="main">
-      <strong>Lojinha de filmes: </strong> <span>em breve</span>
-    </div>
+    <Paper className={classes.root}>
+      <Typography variant="h1" className={classes.title}>
+        EXAMPLE
+      </Typography>
+    </Paper>
   );
 };
 

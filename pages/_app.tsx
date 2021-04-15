@@ -1,15 +1,38 @@
-import { ElementType, memo } from 'react';
-import { PageConfig } from 'next';
+import * as React from 'react';
 
-import '../styles/global.css';
+import createCache from '@emotion/cache';
+import { CacheProvider } from '@emotion/react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from '@src/App/theme';
+import { AppProps } from 'next/app';
+import Head from 'next/head';
 
-type AppProps = {
-  Component: ElementType;
-  pageProps: PageConfig;
-};
+export const cache = createCache({ key: 'css', prepend: true });
 
-const App = ({ Component, pageProps }: AppProps) => {
-  return <Component {...pageProps} />;
-};
+export default function MyApp(props: AppProps) {
+  const { Component, pageProps } = props;
 
-export default memo(App);
+  React.useEffect(() => {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector('#jss-server-side');
+    if (jssStyles) {
+      jssStyles.parentElement!.removeChild(jssStyles);
+    }
+  }, []);
+
+  return (
+    <CacheProvider value={cache}>
+      <Head>
+        <title>My page</title>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </Head>
+      {/* create default theme*/}
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </CacheProvider>
+  );
+}
